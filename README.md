@@ -1,19 +1,60 @@
-# Esame_TRMD
-Repository contenente il lavoro d'esame (Effetto Ekman) per l'appello del 27/02/2025.
+# 🌊 Ekman Effect – Wind & Surface Current Analysis in the Gulf of Trieste
 
-La Repository contiene:
+## Overview
 
-- file .csv (copiato dal sito della Stazione di Biologia Marina di Pirano) contenente i dati analizzati;
+Analysis of wind forcing and surface currents in the Gulf of Trieste to assess consistency with Ekman transport theory.
 
-- Notebook in cui è presente la analisi dei dati, con commenti sul codice e sui risultati ottenuti.
+The project combines exploratory data analysis with Bayesian parameter estimation via Markov Chain Monte Carlo (MCMC), providing both model fitting and uncertainty quantification.
 
+---
 
-N.B. : nel corso dell'implementazione dell'analisi bayesiana, ho usato scipy.minimize per minimizzare il posterior (e ottenere il punto di partenza di emcee), tuttavia
-non sono riuscito a rimuovere il Warning relativo ad errori nel calcolo del gradiente:
+## Dataset
 
-"RuntimeWarning: invalid value encountered in subtract df = fun(x) - f0)"
+CSV time series including:
 
-La funzione risulta minimizzata ma resta l'errore come output.
+- Wind speed and direction  
+- Eastward and Northward surface current components measured by the VIDA oceanographic buoy (Marine Biology Station Piran)
 
-N.B.2 : in qualche punto del testo ci sono errori di visualizzazione che non sono risucito a togliere (es. lettere sbagliate oppure doppi punti)
-La stesura in Markdown è corretta ma il testo il output è sbagliato.
+Data were collected in the Northern Adriatic Sea.
+
+---
+
+## Analysis Workflow
+
+### 1. Exploratory Data Analysis
+
+- Visualization of wind and current time series  
+- Reconstruction of current magnitude and direction from vector components  
+- Angular deviation analysis between wind and surface current  
+- Statistical characterization of current deflection patterns  
+
+### 2. Bayesian Modeling
+
+- Parametric model for the wind–current directional relationship  
+- Likelihood definition and prior specification  
+- Bayesian parameter estimation  
+- MCMC sampling using `emcee` (affine-invariant ensemble sampler)  
+- Posterior analysis and uncertainty quantification  
+
+---
+
+## Tech Stack
+
+- Python  
+- Pandas  
+- NumPy  
+- Matplotlib  
+- emcee  
+- Jupyter Notebook  
+
+---
+
+## Skills Demonstrated
+
+- Time-series analysis and preprocessing  
+- Vector field reconstruction and directional statistics  
+- Scientific data visualization  
+- Bayesian inference and probabilistic modeling  
+- MCMC sampling and posterior analysis  
+- Quantitative parameter estimation with uncertainty propagation  
+- Reproducible computational workflow  
